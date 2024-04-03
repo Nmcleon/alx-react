@@ -16,10 +16,10 @@ module.exports = {
 
   devtool: 'inline-source-map',
   devServer: {
-    static: path.join(__dirname, 'public'),
+    contentBase: path.join(__dirname, './public'),
     compress: true,
     port: 8564,
-   },
+  },
 
   plugins: [
     new  CleanWebpackPlugin(),
