@@ -1,5 +1,5 @@
-import $ from 'jquery';
-import './header.css';
+const $ = require( "jquery" );
+import "./header.css";
 
 $('body').append(`<div id="logo"></div>`);
 $('body').append(`<p>Holberton Dashboard</p>`);
