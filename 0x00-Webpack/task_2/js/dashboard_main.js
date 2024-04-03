@@ -1,18 +1,23 @@
-import $ from "jquery";
-import _ from 'lodash';
+const $ = require( "jquery" );
+// Load the full build
+const _ = require("lodash");
+import "../css/main.css";
 
-$(document).ready(function () {
-	$('body').append('<p>Holberton Dashboard</p>');
-	$('body').append('<p>Dashboard data for the students</p>');
-	$('body').append('<button>Click here to get started</button>');
-	$('body').append('<p id="count"></p>');
-	$('body').append('<p>Copyright - Holberton School</p>');
+let count = 0;
 
-	let count = 0;
-	const updateCounter = () => {
-		count++;
-    $('#count').text(`${count} clicks on the button`);
-	};
+function updateCounter() {
+  count++;
+  $( "#count" ).text(`${count} clicks on the button` );
+}
 
-	$('button').on('click', _.debounce(updateCounter, 500));
-});
+const $button = $("<button>Click here to get started</button>").on(
+  "click",
+  _.debounce( updateCounter, 500, { leading: true, trailing: false })
+);
+
+$('body').append("<div id='logo'></div>");
+$('body').append("<p>Holberton Dashboard</p>");
+$('body').append("<p>Dashboard data for the students</p>");
+$('body').append($button);
+$('body').append("<p id='count'></p>");
+$('body').append("<p>Copyright - Holberton School</p>");
