@@ -6,7 +6,7 @@ module.exports = {
   entry: {
     header: './modules/header/header.js',
     body: './modules/body/body.js',
-    footer: './modules/footer/footer',
+    footer: './modules/footer/footer.js',
   },
 
   output: {
