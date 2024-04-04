@@ -14,4 +14,4 @@ function getLastNotification() {
 }
 
 
-export { getFullYear, getFooterCopy, getLastNotification };
+export { getFullYear, getFooterCopy, getLatestNotification};

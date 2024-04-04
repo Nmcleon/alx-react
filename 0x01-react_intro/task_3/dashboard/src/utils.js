@@ -7,11 +7,11 @@ function getFooterCopy(isIndex) {
 	return "Holberton School";
 }
 
-function getLastNotification() {
+function getLatestNotification() {
 	return {
 		__html: '<strong>Urgent requirement</strong> - complete by EOD'
 	}
 }
 
 
-export { getFullYear, getFooterCopy, getLastNotification };
+export { getFullYear, getFooterCopy, getLatestNotification};
