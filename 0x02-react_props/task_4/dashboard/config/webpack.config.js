@@ -14,9 +14,7 @@ module.exports = {
 	},
 	devServer: {
 		hot: true,
-		static: {
-			directory: path.resolve("./dist"),
-		},
+		contentBase: path.resolve("./dist"),
 		compress: true,
 		port: 8564,
 	},
