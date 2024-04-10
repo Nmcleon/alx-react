@@ -6,10 +6,22 @@ import NotificationItem from './NotificationItem';
 import { getLatestNotification } from '../utils/utils'
 
 describe('Test Notification.js', () => {
-  const listNotifications = [
+  let listNotifications = [
     { id: 1, type: 'default', value: 'New course available' },
     { id: 2, type: 'urgent', value: 'New resume available' },
     { id: 3, type: 'urgent', html: { __html: getLatestNotification()} }
+  ];
+
+  const listNotificationsUpdated = [
+    { id: 1, type: 'default', value: 'New course available' },
+    { id: 2, type: 'urgent', value: 'New resume available' },
+    { id: 3, type: 'urgent', html: { __html: getLatestNotification()} },
+    { id: 4, type: 'default', value: 'New updates' },
+  ];
+
+  const listNotificationsNoUpdated = [
+    { id: 1, type: 'default', value: 'New course available' },
+    { id: 2, type: 'urgent', value: 'New resume available' },
   ];
 
   it('Notification without crashing', (done) => {
@@ -79,6 +91,24 @@ describe('Test Notification.js', () => {
     console.log = jest.fn();
     wrapper.instance().markAsRead(1);
     expect(console.log).toHaveBeenCalled()
+    done();    
+  });
+
+  it('verify that when updating the props of the component with the same list, the component doesn’t rerender', (done) => {
+    const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+    const shouldComponentUpdate = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate');
+    wrapper.setProps({ listNotifications: listNotificationsNoUpdated });
+    expect(shouldComponentUpdate).toHaveBeenCalled();
+    expect(shouldComponentUpdate).toHaveLastReturnedWith(false);
+    done();    
+  });
+
+  it('verify that when updating the props of the component with a longer list, the component does rerender', (done) => {
+    const wrapper = shallow(<Notifications displayDrawer={true} listNotifications={listNotifications} />);
+    const shouldComponentUpdate = jest.spyOn(Notifications.prototype, 'shouldComponentUpdate');
+    wrapper.setProps({ listNotifications: listNotificationsUpdated });
+    expect(shouldComponentUpdate).toHaveBeenCalled();
+    expect(shouldComponentUpdate).toHaveLastReturnedWith(true);
     done();    
   });
 });
