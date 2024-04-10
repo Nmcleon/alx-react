@@ -3,7 +3,7 @@ import './Notifications.css';
 import close_icon from '../assets/close-icon.png';
 import { getLatestNotification } from '../utils/utils';
 import NotificationItem from './NotificationItem';
-import PropTypes from 'prop-types';
+import PropTypes from 'prop-types'; 
 import NotificationItemShape from './NotificationItemShape';
 
 const btnStyle = {
