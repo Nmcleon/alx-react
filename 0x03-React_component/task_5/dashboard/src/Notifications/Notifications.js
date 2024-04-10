@@ -6,7 +6,7 @@ import NotificationItem from './NotificationItem';
 import PropTypes from 'prop-types'; 
 import NotificationItemShape from './NotificationItemShape';
 
-const btnStyle = {
+const buttonStyle = {
   top: '1em',
   right: '1em',
   background: 'transparent',
@@ -16,20 +16,26 @@ const btnStyle = {
   justifyContent: 'flex-end',
 };
 
-const imgStyle = {
+const imageStyle = {
   width: '20px',
   height: '20px',
 }
 
-class Notifications extends React.Component {  
+class Notifications extends React.Component {
+  shouldComponentUpdate(nextProps) {
+    // returns true render will be invoked
+    if (this.props.listNotifications.length < nextProps.listNotifications.length) return true
+    return false;
+  }
+
   render() {
     return (
       <div className="notification-container">
         <div className="menuItem">Your notifications</div>
         { this.props.displayDrawer ?
           (<div className="Notifications">
-            <button style={btnStyle} aria-label='Close' onClick={() => console.log('Close button has been clicked')}>
-              <img src={close_icon} style={imgStyle}/>
+            <button style={buttonStyle} aria-label='Close' onClick={() => console.log('Close button has been clicked')}>
+              <img src={close_icon} style={imageStyle}/>
             </button>
             <p>Here is the list of notifications</p>
             <ul>

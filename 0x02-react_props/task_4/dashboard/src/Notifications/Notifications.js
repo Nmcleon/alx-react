@@ -3,7 +3,7 @@ import './Notifications.css';
 import close_icon from '../assets/close-icon.png';
 import { getLatestNotification } from '../utils/utils';
 import NotificationItem from './NotificationItem';
-import PropTypes from 'prop-types'; // ES6
+import PropTypes from 'prop-types';
 
 
 const Notifications = ({ displayDrawer }) => {

@@ -3,12 +3,12 @@ import './Notifications.css';
 import close_icon from '../assets/close-icon.png';
 import { getLatestNotification } from '../utils/utils';
 import NotificationItem from './NotificationItem';
-import PropTypes from 'prop-types'; // ES6
+import PropTypes from 'prop-types';
 import NotificationItemShape from './NotificationItemShape';
 
 
 const Notifications = ({ displayDrawer, listNotifications }) => {
-  const btnStyle = {
+  const buttonStyle = {
     top: '1em',
     right: '1em',
     background: 'transparent',
@@ -18,7 +18,7 @@ const Notifications = ({ displayDrawer, listNotifications }) => {
     justifyContent: 'flex-end',
   };
 
-  const imgStyle = {
+  const imageStyle = {
     width: '20px',
     height: '20px',
   }
@@ -28,8 +28,8 @@ const Notifications = ({ displayDrawer, listNotifications }) => {
       <div className="menuItem">Your notifications</div>
       { displayDrawer ?
         (<div className="Notifications">
-          <button style={btnStyle} aria-label='Close' onClick={() => console.log('Close button has been clicked')}>
-            <img src={close_icon} style={imgStyle}/>
+          <button style={buttonStyle} aria-label='Close' onClick={() => console.log('Close button has been clicked')}>
+            <img src={close_icon} style={imageStyle}/>
           </button>
           <p>Here is the list of notifications</p>
           <ul>
