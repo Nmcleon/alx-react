@@ -6,6 +6,8 @@ import CourseList from '../CourseList/CourseList';
 import Footer from '../Footer/Footer';
 import PropTypes from 'prop-types';
 import { getLatestNotification } from '../utils/utils';
+import BodySectionWithMarginBottom from './BodySectionWithMarginBottom'; // Import the newly created component
+import BodySection from './BodySection'; // Import the BodySection component
 
 class App extends React.Component {
  componentDidMount() {
@@ -42,7 +44,17 @@ class App extends React.Component {
         <Notifications listNotifications={listNotifications} />
         <div className='App'>
           <Header />
-          {isLoggedIn ? <CourseList listCourses={listCourses} /> : <Login />}
+          {isLoggedIn ? 
+            <BodySectionWithMarginBottom title="Course list">
+              <CourseList listCourses={listCourses} />
+            </BodySectionWithMarginBottom> : 
+            <BodySectionWithMarginBottom title="Log in to continue">
+              <Login />
+            </BodySectionWithMarginBottom>
+          }
+          <BodySection title="News from the School">
+            <p>Some random text about the latest news from the school.</p>
+          </BodySection>
           <Footer />
         </div>
       </React.Fragment>
