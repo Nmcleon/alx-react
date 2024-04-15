@@ -1,6 +1,5 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { StyleSheet, css } from 'aphrodite';
 
 const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
   const bgColor1 = { backgroundColor: '#f5f5f5ab' };
@@ -15,8 +14,8 @@ const CourseListRow = ({ isHeader, textFirstCell, textSecondCell }) => {
     } else {
       content = (
         <Fragment>
-          <th className={css(styles.th)}>{textFirstCell}</th>
-          <th className={css(styles.th)}>{textSecondCell}</th>
+          <th>{textFirstCell}</th>
+          <th>{textSecondCell}</th>
         </Fragment>
       );
     }
@@ -44,13 +43,5 @@ CourseListRow.propTypes = {
   textFirstCell: PropTypes.string.isRequired,
   textSecondCell: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
 };
-
-const styles = StyleSheet.create({
-  th: {
-    textAlign: 'left',
-    borderTop: '1px solid gray',
-    borderBottom: '1px solid gray',
-  },
-});
 
 export default CourseListRow;
