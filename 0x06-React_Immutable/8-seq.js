@@ -1,4 +1,4 @@
-import { Seq } from './node_modules/immutable/dist/immutable';
+import { Seq } from 'immutable';
 
 export default function printBestStudent(object) {
   const seq = Seq(object);
@@ -6,7 +6,7 @@ export default function printBestStudent(object) {
 
   const student = getStudent.toJS();
 
-  const fprmatName = (name) => name.chartAt(0).toUpperCase() + name.slice(1);
+  const formatName = (name) => name.chartAt(0).toUpperCase() + name.slice(1);
 
   Object.keys(student).map((key) => {
     student[key].firstName = formatName(student[key].firstName);
