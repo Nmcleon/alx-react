@@ -6,11 +6,11 @@ import {
 } from '../actions/courseActionTypes';
 
 describe('courseReducer', () => {
-  it('should return the initial state', () => {
+  it('return the initial state', () => {
     expect(courseReducer(undefined, {})).toEqual([]);
   });
 
-  it('should handle FETCH_COURSE_SUCCESS', () => {
+  it('FETCH_COURSE_SUCCESS', () => {
     const courses = [
       { id: 1, name: 'ES6', credit: 60 },
       { id: 2, name: 'Webpack', credit: 20 },
@@ -21,7 +21,7 @@ describe('courseReducer', () => {
     ).toEqual(courses.map((course) => ({ ...course, isSelected: false })));
   });
 
-  it('should handle SELECT_COURSE', () => {
+  it('SELECT_COURSE', () => {
     const courses = [
       { id: 1, name: 'ES6', credit: 60 },
       { id: 2, name: 'Webpack', credit: 20 },
@@ -34,7 +34,7 @@ describe('courseReducer', () => {
     ]);
   });
 
-  it('should handle UNSELECT_COURSE', () => {
+  it('UNSELECT_COURSE', () => {
     const courses = [
       { id: 1, name: 'ES6', credit: 60 },
       { id: 2, name: 'Webpack', credit: 20 },

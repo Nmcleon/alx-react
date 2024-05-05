@@ -1,4 +1,3 @@
-// courseReducer.js
 import {
   FETCH_COURSE_SUCCESS,
   SELECT_COURSE,
