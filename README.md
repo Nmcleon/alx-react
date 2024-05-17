@@ -7,4 +7,4 @@
 5. 0x05-react_state
 6. 0x06-React_Immutable
 7. 0x07-react_redux_action_creator_normalizr
-
+8. 0x09-react_redux_connectors_and_providers
